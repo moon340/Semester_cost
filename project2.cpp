@@ -48,13 +48,12 @@ int main() {
     int id, totalCredits;
     double waiver;
 
-    // Input student information from the user
     cout << "Enter student name: ";
     getline(cin, name);
 
     cout << "Enter student ID: ";
     cin >> id;
-    cin.ignore(); // Clear newline character from input buffer
+    cin.ignore(); 
 
     cout << "Enter program: ";
     getline(cin, program);
@@ -65,13 +64,10 @@ int main() {
     cout << "Enter waiver percentage: ";
     cin >> waiver;
 
-    // Create an undergraduate student
     Undergraduate undergrad(name, id, program, totalCredits, waiver);
 
-    // Display student information
     undergrad.displayInfo();
 
-    // Calculate and display total cost
     double totalCost = undergrad.calculateTotalCost(perCreditFee);
     cout << "Total cost: " << fixed <<  totalCost << endl;
 
