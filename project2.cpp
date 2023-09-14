@@ -10,11 +10,13 @@ protected:
     int totalCredits;
 
 public:
+    // Encapsulation
     Student(const string& n, int i, const string& p, int c)
         : name(n), id(i), program(p), totalCredits(c) {}
 
     virtual ~Student() {}
 
+    // Abstraction
     virtual void displayInfo() = 0;
     virtual double calculateTotalCost(double perCreditFee) = 0;
 };
@@ -24,10 +26,12 @@ private:
     double waiver;
 
 public:
+    // Inheritance
     Undergraduate(const string& n, int i, const string& p, int c, double w)
         : Student(n, i, p, c), waiver(w) {}
 
     void displayInfo() override {
+        // Polymorphism
         cout << "Student name: " << name << endl;
         cout << "ID: " << id << endl;
         cout << "Program: " << program << endl;
@@ -36,6 +40,7 @@ public:
     }
 
     double calculateTotalCost(double perCreditFee) override {
+        // Polymorphism
         double cost = totalCredits * perCreditFee * (1.0 - waiver / 100.0) + 5000;
         return cost;
     }
@@ -64,6 +69,7 @@ int main() {
     cout << "Enter waiver percentage: ";
     cin >> waiver;
 
+    // Encapsulation
     Undergraduate undergrad(name, id, program, totalCredits, waiver);
 
     undergrad.displayInfo();
